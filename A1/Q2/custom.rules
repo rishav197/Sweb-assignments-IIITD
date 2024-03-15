@@ -1,0 +1,50 @@
+[rule1: 
+    (?xxx ?aaa "sss"^^ddd) ->
+    (?xxx ?aaa _:nnn),
+    (_:nnn rdf:type ddd)
+]
+
+[rule2:
+    (?xxx ?aaa ?yyy) ->
+    (?aaa rdf:type rdf:Property)
+]
+
+[rule3:
+    (?xxx ?aaa "sss"^^ddd) ->
+    (ddd rdf:type rdfs:Datatype)
+]
+
+[rule4:
+    (?aaa rdfs:domain ?xxx) (?yyy ?aaa ?zzz) ->
+    (?yyy rdf:type ?xxx)
+]
+
+[rule5:
+    (?aaa rdfs:range ?xxx) (?yyy ?aaa ?zzz) ->
+    (?zzz rdf:type ?xxx)
+]
+
+[rule6:
+    (?xxx rdfs:subPropertyOf ?yyy) (?yyy rdfs:subPropertyOf ?zzz) ->
+    (xxx rdfs:subPropertyOf zzz)
+]
+
+[rule7:
+    (?xxx rdf:type rdf:Property) ->
+    (?xxx rdfs:subPropertyOf ?xxx)
+]
+
+[rule8:
+    (?aaa rdfs:subPropertyOf ?bbb) (?xxx ?aaa ?yyy) ->
+    (?xxx ?bbb ?yyy)
+]
+
+[rule9:
+    (?xxx rdf:type rdfs:Class) ->
+    (?xxx rdfs:subClassOf rdfs:Resource)
+]
+
+[rule10:
+    (?xxx rdfs:subClassOf ?yyy) (?zzz rdf:type ?xxx) ->
+    (?zzz rdf:type ?yyy)
+]

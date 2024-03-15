@@ -1,0 +1,89 @@
+@prefix ns1: <https://iiitd.ac.in/course/sweb/student/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ns1:Course a rdfs:Class .
+
+ns1:Department a rdfs:Class .
+
+ns1:Professor a rdfs:Class .
+
+ns1:ResearchGrp a rdfs:Class .
+
+ns1:Student a rdfs:Class .
+
+ns1:University a rdfs:Class .
+
+ns1:advisor a rdf:Property ;
+    rdfs:domain ns1:Student ;
+    rdfs:range ns1:Professor .
+
+ns1:department1 ns1:name "CS" .
+
+ns1:memberOf a rdf:Property ;
+    rdfs:domain ns1:Student ;
+    rdfs:range ns1:Department .
+
+ns1:professor3 a ns1:Professor ;
+    ns1:name "Tim" ;
+    ns1:teaches ns1:course2 .
+
+ns1:researchgrp a ns1:ResearchGrp ;
+    ns1:name "InfoLab" .
+
+ns1:student1 a ns1:Student ;
+    ns1:advisor ns1:professor4 ;
+    ns1:name "Ben" ;
+    ns1:takes ns1:course2 .
+
+ns1:student2 a ns1:Student ;
+    ns1:advisor ns1:professor1 ;
+    ns1:name "John" ;
+    ns1:takes ns1:course2 .
+
+ns1:student3 a ns1:Student ;
+    ns1:advisor ns1:professor2 ;
+    ns1:name "Lee" ;
+    ns1:takes ns1:course1 .
+
+ns1:student4 a ns1:Student ;
+    ns1:advisor ns1:professor2 ;
+    ns1:name "Peter" ;
+    ns1:takes ns1:course1 .
+
+ns1:subOrgOf a rdf:Property ;
+    rdfs:domain ns1:Department ;
+    rdfs:range ns1:ResearchGrp .
+
+ns1:takes a rdf:Property ;
+    rdfs:domain ns1:Student ;
+    rdfs:range ns1:Course .
+
+ns1:teaches a rdf:Property ;
+    rdfs:domain ns1:Professor ;
+    rdfs:range ns1:Course .
+
+ns1:worksFor a rdf:Property ;
+    rdfs:domain ns1:Professor ;
+    rdfs:range ns1:Department .
+
+ns1:professor1 a ns1:Professor ;
+    ns1:name "Fred" ;
+    ns1:teaches ns1:course2 ;
+    ns1:worksFor ns1:department .
+
+ns1:professor4 ns1:name "Lisa" .
+
+ns1:department a ns1:Department .
+
+ns1:professor2 a ns1:Professor ;
+    ns1:name "James" ;
+    ns1:teaches ns1:course1 ;
+    ns1:worksFor ns1:department .
+
+ns1:course1 a ns1:Course ;
+    ns1:name "Databases" .
+
+ns1:course2 a ns1:Course ;
+    ns1:name "Algorithms" .
+
